@@ -52,6 +52,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textSize="16sp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:textColor="#FFF"
         android:layout_below="@+id/demoemail"
         android:layout_centerHorizontal="true"
