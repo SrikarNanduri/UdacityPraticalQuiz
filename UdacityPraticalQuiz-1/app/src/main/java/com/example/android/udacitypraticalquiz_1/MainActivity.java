@@ -2,6 +2,7 @@ package com.example.android.udacitypraticalquiz_1;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemThatWasClickedId = item.getItemId();
         if (itemThatWasClickedId == R.id.action_account) {
-            Context context = MainActivity.this;
-            String textToShow = "Search clicked";
-            Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
+            Intent detailsIntent = new Intent(this, DetailsActivity.class);
+            detailsIntent.putExtra("user", String.valueOf(user.getText()));
+            detailsIntent.putExtra("email", String.valueOf(email.getText()) );
+            detailsIntent.putExtra("description",  String.valueOf(descriptin.getText()));
+            startActivity(detailsIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
