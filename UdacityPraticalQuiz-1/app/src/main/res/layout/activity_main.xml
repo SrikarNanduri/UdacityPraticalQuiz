@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:adjustViewBounds="true"
-    android:background="@drawable/image1">
+    android:background="@drawable/image2">
 
   <include
       android:layout_width="match_parent"
