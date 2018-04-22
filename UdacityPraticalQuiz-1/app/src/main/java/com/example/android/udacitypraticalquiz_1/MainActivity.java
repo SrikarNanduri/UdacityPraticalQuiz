@@ -42,10 +42,22 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
+              /*  Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
                 detailsIntent.putExtra("user", String.valueOf(user.getText()));
                 detailsIntent.putExtra("email", String.valueOf(email.getText()) );
                 detailsIntent.putExtra("description",  String.valueOf(descriptin.getText()));
+                startActivity(detailsIntent);*/
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+                //SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("user", user.getText().toString());
+                editor.putString("email", email.getText().toString());
+                editor.putString("description", descriptin.getText().toString());
+                editor.apply();
+                user.setText("");
+                email.setText("");
+                descriptin.setText("");
+                Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
                 startActivity(detailsIntent);
             }
         });
@@ -87,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
         int itemThatWasClickedId = item.getItemId();
         if (itemThatWasClickedId == R.id.action_account) {
             Intent detailsIntent = new Intent(this, DetailsActivity.class);
-            detailsIntent.putExtra("user", String.valueOf(user.getText()));
+            /*detailsIntent.putExtra("user", String.valueOf(user.getText()));
             detailsIntent.putExtra("email", String.valueOf(email.getText()) );
-            detailsIntent.putExtra("description",  String.valueOf(descriptin.getText()));
+            detailsIntent.putExtra("description",  String.valueOf(descriptin.getText()));*/
             startActivity(detailsIntent);
             return true;
         }
